@@ -19,8 +19,7 @@ import com.sp.employeeservice.service.EmployeeService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-class EmployeeServiceApplicationTests {
-
+public class EmployeeServiceTest {
 	@Autowired
 	private EmployeeService empService;
 
