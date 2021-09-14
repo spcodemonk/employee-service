@@ -33,7 +33,7 @@ public class EmployeeServiceTest {
 		emp1.setName("Sam");
 
 		List<Employee> empList = new ArrayList<>();
-		empList.add(emp1);
+//		empList.add(emp1);
 
 		when(repository.findAll()).thenReturn(empList);
 		List<Employee> data = empService.getEmployeeList();
