@@ -10,12 +10,16 @@ import com.sp.employeeservice.model.Employee;
 
 @Service
 public class EmployeeService {
-	
+
 	@Autowired
 	EmployeeRepository repository;
 
-	public List<Employee> getEmployeeList(){
-		
+	public List<Employee> getEmployeeList() {
+
 		return (List<Employee>) repository.findAll();
+	}
+
+	public Employee getEmployee(int id) {
+		return repository.findById(1).get();
 	}
 }

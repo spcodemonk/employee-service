@@ -1,5 +1,7 @@
 package com.sp.employeeservice;
 
+import java.util.List;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,16 +26,17 @@ public class EmployeeController {
 	private ModelMapper modelMapper;
 
 	@GetMapping("/allEmps")
-	public String FindAllEmployees() {
+	public List<Employee> FindAllEmployees() {
 
-		return "Hi Sharad";
+		return empService.getEmployeeList();
 	}
 
 	@PostMapping("/save-emp")
 	public String saveEmployee(@RequestBody EmployeeDto empDto) {
 		Employee emp = modelMapper.map(empDto, Employee.class);
+
 		System.out.println(emp.toString());
-		return new String("Sharad");
+		return new String("");
 	}
 
 }
