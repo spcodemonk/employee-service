@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,16 +28,14 @@ public class EmployeeController {
 
 	@GetMapping("/allEmps")
 	public List<Employee> FindAllEmployees() {
-
 		return empService.getEmployeeList();
 	}
 
 	@PostMapping("/save-emp")
-	public String saveEmployee(@RequestBody EmployeeDto empDto) {
+	public ResponseEntity<Employee> saveEmployee(@RequestBody EmployeeDto empDto) {
 		Employee emp = modelMapper.map(empDto, Employee.class);
-
-		System.out.println(emp.toString());
-		return new String("");
+		System.out.println(emp);
+		return new ResponseEntity<Employee>(empService.createEmployee(emp), HttpStatus.ACCEPTED);
 	}
 
 }

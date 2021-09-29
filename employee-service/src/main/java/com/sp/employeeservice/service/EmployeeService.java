@@ -18,11 +18,14 @@ public class EmployeeService {
 	EmployeeRepository repository;
 
 	public List<Employee> getEmployeeList() {
-
 		return (List<Employee>) repository.findAll();
 	}
 
 	public Employee getEmployee(int id) {
 		return repository.findById(1).get();
+	}
+	
+	public Employee createEmployee(Employee emp) {
+		return repository.save(emp);
 	}
 }
