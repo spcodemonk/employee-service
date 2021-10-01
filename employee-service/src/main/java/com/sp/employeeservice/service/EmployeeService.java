@@ -22,7 +22,7 @@ public class EmployeeService {
 	}
 
 	public Employee getEmployee(int id) {
-		return repository.findById(1).get();
+		return repository.findById(id).get();
 	}
 	
 	public Employee createEmployee(Employee emp) {
