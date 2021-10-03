@@ -43,5 +43,13 @@ public class EmployeeController {
 		System.out.println(emp);
 		return new ResponseEntity<Employee>(empService.createEmployee(emp), HttpStatus.ACCEPTED);
 	}
+	
+	@GetMapping("/findbyname/{name}")
+	public ResponseEntity<List<Employee>> findEmployeeByName(@PathVariable String name) {
+		 List<Employee> empList = empService.findEmployeeByName(name);
+		System.out.println(empList);
+		return new ResponseEntity<List<Employee>>(empList, HttpStatus.ACCEPTED);
+	}
+	
 
 }

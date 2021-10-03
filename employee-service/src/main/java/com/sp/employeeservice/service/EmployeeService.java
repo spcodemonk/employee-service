@@ -11,7 +11,6 @@ import com.sp.employeeservice.dao.EmployeeRepository;
 import com.sp.employeeservice.model.Employee;
 
 @Service
-@Transactional
 public class EmployeeService {
 
 	@Autowired
@@ -27,5 +26,9 @@ public class EmployeeService {
 	
 	public Employee createEmployee(Employee emp) {
 		return repository.save(emp);
+	}
+	
+	public List<Employee> findEmployeeByName(String name) {
+		return repository.findByNameLike(name);
 	}
 }
