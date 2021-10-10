@@ -2,9 +2,12 @@ package com.sp.employeeservice.service;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.sp.employeeservice.dao.EmployeeRepository;
@@ -23,12 +26,20 @@ public class EmployeeService {
 	public Employee getEmployee(int id) {
 		return repository.findById(id).get();
 	}
-	
+
 	public Employee createEmployee(Employee emp) {
 		return repository.save(emp);
 	}
-	
+
 	public List<Employee> findEmployeeByName(String name) {
 		return repository.findByNameLike(name);
+	}
+
+	public List<Employee> findEmployeeWithSorting(int pageNo, int PageSize, String field) {
+		Pageable paging = PageRequest.of(pageNo, PageSize);
+
+		Page<Employee> pagedResult = repository.findAll(paging);
+		
+		return pagedResult.getContent();
 	}
 }
