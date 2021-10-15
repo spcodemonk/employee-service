@@ -1,13 +1,12 @@
 package com.sp.employeeservice.service;
 
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.sp.employeeservice.dao.EmployeeRepository;
@@ -39,7 +38,15 @@ public class EmployeeService {
 		Pageable paging = PageRequest.of(pageNo, PageSize);
 
 		Page<Employee> pagedResult = repository.findAll(paging);
-		
+
 		return pagedResult.getContent();
+	}
+
+	public Employee findHighestPaidEmployee(Integer deptId) {
+		List<Employee> data = repository.findMaxSalaryByDept(deptId);
+
+		Employee emp = data.stream().max(Comparator.comparing(Employee::getSalary)).get();
+
+		return emp;
 	}
 }

@@ -19,4 +19,8 @@ public class Employee {
 
 	private String name;
 
+	private Integer dept;
+
+	private Integer salary;
+
 }
