@@ -42,11 +42,11 @@ public class EmployeeService {
 		return pagedResult.getContent();
 	}
 
-	public Employee findHighestPaidEmployee(Integer deptId) {
-		List<Employee> data = repository.findMaxSalaryByDept(deptId);
-
-		Employee emp = data.stream().max(Comparator.comparing(Employee::getSalary)).get();
-
-		return emp;
-	}
+//	public Employee findHighestPaidEmployee(Integer deptId) {
+//		List<Employee> data = repository.findMaxSalaryByDept(deptId);
+//
+//		Employee emp = data.stream().max(Comparator.comparing(Employee::getSalary)).get();
+//
+//		return emp;
+//	}
 }

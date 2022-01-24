@@ -70,13 +70,13 @@ public class EmployeeServiceTest {
 
 	}
 
-	@Test
-	public void getHighestSalaryEmployeeTest() {
-
-		when(repository.findMaxSalaryByDept(0)).thenReturn(empList);
-
-		Employee e = empService.findHighestPaidEmployee(0);
-
-		assertEquals(3, e.getId());
-	}
+//	@Test
+//	public void getHighestSalaryEmployeeTest() {
+//
+//		when(repository.findMaxSalaryByDept(0)).thenReturn(empList);
+//
+//		Employee e = empService.findHighestPaidEmployee(0);
+//
+//		assertEquals(3, e.getId());
+//	}
 }

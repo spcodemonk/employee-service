@@ -33,6 +33,11 @@ public class EmployeeController {
 		return empService.getEmployeeList();
 	}
 	
+	@GetMapping("/sampleFeggnTest")
+	public String sampleFeggnTest() {
+		return "Sharad your Feign Client test is successful Wow";
+	}
+	
 	@GetMapping("/allEmpswithPage")
 	public List<Employee> findEmployeeWithSorting( @RequestParam(defaultValue = "0") Integer pageNo, @RequestParam(defaultValue = "10") Integer pageSize,@RequestParam(defaultValue = "id") String sortBy) {
 		

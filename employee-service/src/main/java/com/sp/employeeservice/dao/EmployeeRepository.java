@@ -11,6 +11,6 @@ public interface EmployeeRepository extends  PagingAndSortingRepository <Employe
 
 	List<Employee> findByNameLike(String name);
 	
-	@Query("FROM EMPLOYEE E WHERE E.DEPT=?1")
-	List<Employee>findMaxSalaryByDept(int dept_id);
+//	@Query("FROM EMPLOYEE E WHERE E.DEPT=?1")
+//	List<Employee>findMaxSalaryByDept(int dept_id);
 }
